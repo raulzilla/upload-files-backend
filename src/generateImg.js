@@ -6,13 +6,18 @@ export const generateImg = (nameImg, img) => {
   const newImg = img.split("base64")[1].substring(1);
 
   fs.writeFileSync(`./assets/${nameImg}.${type}`, newImg, "base64");
-  publishImg();
+  return publishImg(nameImg, type);
 };
 
-const publishImg = () => {
+const publishImg = (nameImg, type) => {
   const git = simpleGit();
 
   git.add(".");
   git.commit("new image");
   git.push();
+
+  return {
+    message: "A imagem foi postada",
+    url: `https://raw.githubusercontent.com/raulzilla/upload-files-backend/main/assets/${nameImg}.${type}`,
+  };
 };
