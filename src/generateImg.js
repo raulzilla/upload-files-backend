@@ -1,5 +1,5 @@
 import fs from "fs";
-import simpleGit from "simple-git";
+import { simpleGit } from "simple-git";
 
 export const generateImg = (nameImg, img) => {
   const type = img.split("base64")[0].split("/")[1].replace(/.$/, "");
@@ -10,7 +10,7 @@ export const generateImg = (nameImg, img) => {
 };
 
 const publishImg = () => {
-  const git = simpleGit.default();
+  const git = simpleGit();
 
   git.add(".");
   git.commit("new image");
