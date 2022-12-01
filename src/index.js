@@ -15,10 +15,6 @@ app.post("/generate-img", async (req, res) => {
   const request = await req.body;
 
   generateImg(request.nameImg, request.img, request.type);
-
-  res.status(200).json({
-    data: `https://raw.githubusercontent.com/raulzilla/upload-files-backend/main/assets/${res.img}.${res.type}`,
-  });
 });
 
 app.get("/", (_, res) => {
