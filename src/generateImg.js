@@ -4,7 +4,9 @@ import { simpleGit } from "simple-git";
 export const generateImg = (nameImg, img, type) => {
   const newImg = img.split("base64")[1].substring(1);
 
-  fs.writeFileSync(`./assets/${nameImg}.${type}`, newImg, "base64");
+  fs.writeFile(`./assets/${nameImg}.${type}`, newImg, "base64", (e) =>
+    console.error(e)
+  );
   return publishImg();
 };
 
