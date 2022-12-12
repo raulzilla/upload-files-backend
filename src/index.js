@@ -14,7 +14,7 @@ app.use(bodyParser.json({ limit: "50mb" }));
 app.post("/generate-img", async (req, res) => {
   const request = await req.body;
 
-  console.log(generateImg(request.nameImg, request.img, request.type));
+  generateImg(request.nameImg, request.img, request.type);
   res.json({ data: "test" });
 });
 
