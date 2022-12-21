@@ -16,4 +16,6 @@ const publishImg = () => {
   git.add(".");
   git.commit("new image");
   git.push();
+
+  return true;
 };
